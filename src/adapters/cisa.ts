@@ -22,7 +22,12 @@ export const cisaAdapter: SourceAdapter = {
   group: 'fast',
 
   async poll(ctx: PollContext): Promise<RawVuln[]> {
-    const response = await fetch(URL, { headers: { 'User-Agent': 'VulnAggregator/1.0' } })
+    const response = await fetch(URL, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0',
+        'Accept': 'application/json',
+      },
+    })
     if (!response.ok) throw new Error(`CISA KEV returned ${response.status}`)
 
     const data = await response.json() as { vulnerabilities: CisaKevEntry[] }

@@ -30,7 +30,7 @@ export const ciscoAdapter: SourceAdapter = {
       }
     }
 
-    const headers: Record<string, string> = { 'User-Agent': 'VulnAggregator/1.0' }
+    const headers: Record<string, string> = { 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0' }
     if (token) headers['Authorization'] = `Bearer ${token}`
 
     if (token) {
@@ -59,7 +59,7 @@ export const ciscoAdapter: SourceAdapter = {
     }
 
     const fallbackRes = await fetch(FALLBACK_URL, {
-      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; VulnAggregator/1.0)' },
+      headers: { 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0' },
     })
     if (!fallbackRes.ok) throw new Error(`Cisco RSS returned ${fallbackRes.status}`)
 

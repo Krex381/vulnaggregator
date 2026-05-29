@@ -15,7 +15,7 @@ export const redhatAdapter: SourceAdapter = {
     }
 
     const res = await fetch(`${URL}?${params}`, {
-      headers: { 'User-Agent': 'VulnAggregator/1.0' },
+      headers: { 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0' },
     })
     if (!res.ok) throw new Error(`Red Hat API returned ${res.status}`)
 

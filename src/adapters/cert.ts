@@ -9,7 +9,7 @@ export const certAdapter: SourceAdapter = {
 
   async poll(_ctx: PollContext): Promise<RawVuln[]> {
     const res = await fetch(`${BASE}/notes/`, {
-      headers: { 'User-Agent': 'VulnAggregator/1.0' },
+      headers: { 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0', 'Accept': 'application/json' },
     })
     if (!res.ok) throw new Error(`CERT/CC returned ${res.status}`)
 
@@ -30,7 +30,7 @@ export const certAdapter: SourceAdapter = {
 
       const id = note.idnumber
       const detailRes = await fetch(`${BASE}/${id}/`, {
-        headers: { 'User-Agent': 'VulnAggregator/1.0' },
+        headers: { 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0', 'Accept': 'application/json' },
       })
       if (!detailRes.ok) continue
 

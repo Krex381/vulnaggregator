@@ -63,7 +63,7 @@ export const githubAdapter: SourceAdapter = {
 
       const headers: Record<string, string> = {
         'Content-Type': 'application/json',
-        'User-Agent': 'VulnAggregator/1.0',
+        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0',
         'Authorization': `Bearer ${ghToken}`,
       }
       const res = await fetch('https://api.github.com/graphql', {

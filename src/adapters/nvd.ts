@@ -53,7 +53,7 @@ export const nvdAdapter: SourceAdapter = {
       params.set('startIndex', String(fetched))
 
       const response = await fetch(`${BASE}?${params}`, {
-        headers: { 'User-Agent': 'VulnAggregator/1.0' },
+        headers: { 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0' },
       })
 
       if (response.status === 403 || response.status === 429) {

@@ -10,7 +10,7 @@ export const ubuntuAdapter: SourceAdapter = {
   async poll(ctx: PollContext): Promise<RawVuln[]> {
     const params = new URLSearchParams({ limit: '20' })
     const res = await fetch(`${URL}?${params}`, {
-      headers: { 'User-Agent': 'VulnAggregator/1.0' },
+      headers: { 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0' },
     })
     if (!res.ok) throw new Error(`Ubuntu API returned ${res.status}`)
 

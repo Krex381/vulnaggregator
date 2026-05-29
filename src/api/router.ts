@@ -12,8 +12,9 @@ export function registerRoutes(app: FastifyInstance): void {
   registerHealth(app)
   registerDashboard(app)
 
+  const publicPaths = ['/health', '/', '/api/v1/sources', '/api/v1/stats']
   app.addHook('onRequest', async (request, reply) => {
-    if (request.url === '/health' || request.url === '/') return
+    if (publicPaths.includes(request.url)) return
     await rateLimitMiddleware(request, reply)
     await authMiddleware(request, reply)
   })
