@@ -1,5 +1,6 @@
 import type { FastifyInstance } from 'fastify'
 import { registerHealth } from './health.js'
+import { registerDashboard } from './dashboard.js'
 import { registerVulns } from './vulns.js'
 import { registerFilters } from './filters.js'
 import { registerSources } from './sources.js'
@@ -9,9 +10,10 @@ import { sendDiscordTest } from '../notifier.js'
 
 export function registerRoutes(app: FastifyInstance): void {
   registerHealth(app)
+  registerDashboard(app)
 
   app.addHook('onRequest', async (request, reply) => {
-    if (request.url === '/health') return
+    if (request.url === '/health' || request.url === '/') return
     await rateLimitMiddleware(request, reply)
     await authMiddleware(request, reply)
   })
